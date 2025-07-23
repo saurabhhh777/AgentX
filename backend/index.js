@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
+import agentsRoutes from "./routes/agents.route";
 const app = express();
+
 
 
 const PORT = 7000;
@@ -8,6 +10,7 @@ const PORT = 7000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
+
 
 app.get("/",(req,res)=>{
     return res.status(200).json({
@@ -17,6 +20,8 @@ app.get("/",(req,res)=>{
 })
 
 
+
+app.use("/api/agents", agentsRoutes);
 
 
 
